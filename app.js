@@ -2,7 +2,7 @@ var express = require('express');
 
 var app = express();
 
-app.set('port', process.env.port || 3000);
+app.set('port', process.env.VCAP_APP_PORT || 3000);
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 
