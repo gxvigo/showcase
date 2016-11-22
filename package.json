@@ -1,0 +1,15 @@
+{
+  "name": "shocase",
+  "version": "1.0.0",
+  "description": "Demo app for Showcase event",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon -e css,ejs,js,json --watch ./"
+  },
+  "author": "Giovanni Vigorelli",
+  "license": "MIT",
+  "dependencies": {
+    "ejs": "^2.5.2",
+    "express": "^4.14.0"
+  }
+}
