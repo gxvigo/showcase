@@ -30,7 +30,6 @@
                         <tbody id="sessionsTableContent">
 
                             <% if(sessionsTimeTable.length>0) { %>
-                                <% console.log("### sessionsTimeTable.length: " + sessionsTimeTable.length); %>
                                 <% for(row in sessionsTimeTable) { %>
                                     <tr>
                                         <td class="title"><%= sessionsTimeTable[row].time %></td><td><%= sessionsTimeTable[row].title %></td>
