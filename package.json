@@ -4,12 +4,13 @@
   "description": "Demo app for Showcase event",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon -e css,ejs,js,json --watch ./"
+    "start": "node app.js"
   },
   "author": "Giovanni Vigorelli",
   "license": "MIT",
   "dependencies": {
     "ejs": "^2.5.2",
-    "express": "^4.14.0"
+    "express": "^4.14.0",
+    "request": "^2.79.0"
   }
 }
