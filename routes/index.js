@@ -57,7 +57,7 @@ router.get('/', function (req, res) {
 /**************************************************************
 * API call to API Connect running on Bluemix
 * SNIPPET FROM  - IBM API CONNECT Portal -
-* Start
+* End
 **************************************************************/  
   
 });
