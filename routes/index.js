@@ -24,7 +24,7 @@ router.get('/', function (req, res) {
 * API call to API Connect running on Bluemix
 * SNIPPET FROM  - IBM API CONNECT Portal -
 * Start
-**************************************************************/
+**************************************************************
 
 
   var options = {
@@ -45,12 +45,14 @@ router.get('/', function (req, res) {
     } else {
       console.log('Success: ', body);
       sessionsTimeTable = JSON.parse(body);
-      // Next block not part of API Connect snipped.
+      */
+      // ** Next block not part of API Connect snipped.
       res.render('index', {  // this load ./views/index.ejs passing a variable (object) 
         pageTitle: 'Showcase 2016',
         pageId: 'home',
         sessionsTimeTable: sessionsTimeTable
       });
+      /** 
     }
   });
 
