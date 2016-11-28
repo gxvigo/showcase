@@ -1,4 +1,5 @@
 var express = require('express');
+var request = require("request");
 
 var router = express.Router();
 
@@ -15,8 +16,9 @@ var sessionsTimeTable = [];
 // ];
 
 
+router.get('/', function (req, res) {
 
-// *** PLACE HERE THE SNIPPET FROM  - IBM API CONNECT Portal -
+  // *** PLACE HERE THE SNIPPET FROM  - IBM API CONNECT Portal -
 // - comment out: createRoute(sessionsTimeTable); 
 // - remove filter attribute in te options
 // - parse and invoke createRoute(). 
@@ -24,11 +26,8 @@ var sessionsTimeTable = [];
 // ---   sessionsTimeTable = JSON.parse(body);
 // ---  createRoute(sessionsTimeTable);
 
-//
 
-var request = require("request");
-
-var options = {
+  var options = {
   method: 'GET',
   url: 'https://api.au.apiconnect.ibmcloud.com/giovanninzibmcom-dev/conference/api/sessionstimetables',
   headers:
@@ -39,26 +38,22 @@ var options = {
   }
 };
 
-request(options, function (error, response, body) {
-  if (error) return console.error('Failed: %s', error.message);
-
-  console.log('Success: ', body);
-  sessionsTimeTable = JSON.parse(body);
-  createRoute(sessionsTimeTable);
-});
-
-
-function createRoute(sessionsTimeTable) {
-  router.get('/', function (req, res) {
-    res.render('index', {  // this load ./views/index.ejs passing a variable (object)
-      pageTitle: 'Showcase 2016',
-      pageId: 'home',
-      sessionsTimeTable: sessionsTimeTable
-    });
+  request(options, function (error, response, body) {
+    if (error) {
+      console.error('Failed: %s', error.message);
+      return res.status(500).end();
+    } else {
+      console.log('Success: ', body);
+      sessionsTimeTable = JSON.parse(body);
+      res.render('index', {  // this load ./views/index.ejs passing a variable (object)
+        pageTitle: 'Showcase 2016',
+        pageId: 'home',
+        sessionsTimeTable: sessionsTimeTable
+      });
+    }
   });
-}
-
-
+  
+});
 
 module.exports = router;
 
